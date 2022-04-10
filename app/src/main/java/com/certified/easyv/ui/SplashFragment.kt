@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.certified.easyv.R
 import com.certified.easyv.databinding.FragmentSplashBinding
 import com.google.firebase.auth.ktx.auth
@@ -33,11 +34,11 @@ class SplashFragment : Fragment() {
         lifecycleScope.launch {
             delay(3000L)
             val currentUser = Firebase.auth.currentUser
-//            if (currentUser == null)
+            if (currentUser == null)
+                findNavController().navigate(R.id.loginFragment)
 //                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
-//            else {
-//                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
-//            }
+            else
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
         }
     }
 

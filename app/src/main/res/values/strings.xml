@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">EasyV</string>
+    <string name="home">Home</string>
+    <string name="result">Result</string>
+    <string name="profile">Profile</string>
+    <string name="vote">Vote</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="login_summary">Welcome back, provide your details to login to your account</string>
+    <string name="email_address">Email Address</string>
+    <string name="email_hint">e.g maxwellcpe175000@futa.edu.ng</string>
+    <string name="password">Password</string>
+    <string name="hint_password">**********</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="or">OR</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="create_account_summary">Kindly provide the few details below and we will setup your account for you</string>
+    <string name="full_name">Full Name</string>
+    <string name="name_hint">e.g George Maxwell</string>
+    <string name="matriculation_number">Matriculation Number</string>
+    <string name="choose_password">Choose Password</string>
+    <string name="password_requirement">Password must be at least 8 characters\nand have at least a:\n Uppercase letter e.g A\n Special character e.g @\n Number e.g 1</string>
 </resources>

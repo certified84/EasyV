@@ -169,7 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/space_grotesk_regular"
-                    android:hint="@string/email_hint"
+                    android:hint="@string/matriculation_number_hint"
                     android:inputType="textEmailAddress"
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_8sdp"

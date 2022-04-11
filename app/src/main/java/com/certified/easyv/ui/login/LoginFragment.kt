@@ -18,7 +18,6 @@ import com.certified.easyv.util.Extensions.checkFieldEmpty
 import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.PreferenceKeys
 import com.certified.easyv.util.UIState
-import com.certified.easyv.util.isValidEmail
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -80,8 +79,8 @@ class LoginFragment : Fragment() {
                 if (etEmail.checkFieldEmpty())
                     return@setOnClickListener
 
-                if (!isValidEmail(email, etEmail))
-                    return@setOnClickListener
+//                if (!isValidEmail(email, etEmail))
+//                    return@setOnClickListener
 
                 if (etPassword.checkFieldEmpty())
                     return@setOnClickListener

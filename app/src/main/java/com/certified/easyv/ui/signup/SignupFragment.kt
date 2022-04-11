@@ -62,7 +62,7 @@ class SignupFragment : Fragment() {
                         email = currentUser.email.toString(),
                         matriculation_number = matriculation_number
                     )
-//                    uploadDetails(currentUser.uid, newUser)
+                    uploadDetails(currentUser.uid, newUser)
                 }
             }
             uploadSuccess.observe(viewLifecycleOwner) {
@@ -135,7 +135,7 @@ class SignupFragment : Fragment() {
                 if (!isValidEmail(email, etEmail))
                     return@setOnClickListener
 
-                if (etMatriculationNumber.checkFieldEmpty())
+                if (!name.startsWith("A_") && etMatriculationNumber.checkFieldEmpty())
                     return@setOnClickListener
 
                 if (etPassword.checkFieldEmpty())

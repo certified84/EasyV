@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.certified.easyv.data.model.User
 import com.certified.easyv.data.repository.FirebaseRepository
 import com.certified.easyv.util.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,19 +41,19 @@ class SignupViewModel @Inject constructor(private val repository: FirebaseReposi
         }
     }
 
-//    fun uploadDetails(userID: String, newUser: User) {
-//        viewModelScope.launch {
-//            try {
-//                repository.uploadDetails(userID, newUser).await()
+    fun uploadDetails(userID: String, newUser: User) {
+        viewModelScope.launch {
+            try {
+                repository.uploadDetails(userID, newUser).await()
 //                repository.setAccountType(userID, AccountType()).await()
-//                uiState.set(UIState.SUCCESS)
-//                _uploadSuccess.value = true
-//                _message.value =
-//                    "Account created successfully. We sent a verification link to ${newUser.email}"
-//            } catch (e: Exception) {
-//                uiState.set(UIState.FAILURE)
-//                _uploadSuccess.value = false
-//            }
-//        }
-//    }
+                uiState.set(UIState.SUCCESS)
+                _uploadSuccess.value = true
+                _message.value =
+                    "Account created successfully. We sent a verification link to ${newUser.email}"
+            } catch (e: Exception) {
+                uiState.set(UIState.FAILURE)
+                _uploadSuccess.value = false
+            }
+        }
+    }
 }

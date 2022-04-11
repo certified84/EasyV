@@ -18,7 +18,7 @@ class OnboardingFragment : Fragment() {
 
     private var _binding: FragmentOnboardingBinding? = null
     private val binding get() = _binding!!
-    private val sliderItems = mutableListOf<SliderItem>()
+    private lateinit var sliderItems: ArrayList<SliderItem>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,36 +47,25 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun setUpSliderItem() {
-        sliderItems.add(
+        sliderItems = arrayListOf(
             SliderItem(
                 R.raw.lottie_vote, getString(R.string.vote_from_comfort),
                 getString(R.string.vote_from_comfort_description)
-            )
-        )
-        sliderItems.add(
+            ),
             SliderItem(
                 R.raw.lottie_process_result, getString(R.string.realtime_result),
                 getString(R.string.realtime_result_description)
-            )
-        )
-        sliderItems.add(
+            ),
             SliderItem(
                 R.raw.lottie_profile_user_card, getString(R.string.see_candidate_profile),
                 getString(R.string.see_candidate_profile_description)
             )
         )
-//        sliderItems.add(
-//            SliderItem(
-//                R.raw.animation_report, getString(R.string.view_pager_title_report),
-//                getString(R.string.view_pager_description_report)
-//            )
-//        )
     }
 
     private fun setUpViewPager() {
         binding.apply {
-            val viewPagerAdapter = ViewPagerAdapter(sliderItems)
-            viewPager.adapter = viewPagerAdapter
+            viewPager.adapter = ViewPagerAdapter(sliderItems)
             viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)

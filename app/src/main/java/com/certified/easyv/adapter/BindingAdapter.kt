@@ -5,6 +5,7 @@ import android.text.Html
 import android.view.View
 import androidx.databinding.BindingAdapter
 import coil.load
+import com.airbnb.lottie.LottieAnimationView
 import com.certified.easyv.R
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
@@ -39,4 +40,9 @@ fun MaterialTextView.parseServerTime(time: String) {
 fun ShapeableImageView.loadImage(image: String?) {
     if (image != null) this.load(image)
     else this.load(R.drawable.no_profile_image)
+}
+
+@BindingAdapter("animation")
+fun LottieAnimationView.animation(animation: Int) {
+    this.setAnimation(animation)
 }

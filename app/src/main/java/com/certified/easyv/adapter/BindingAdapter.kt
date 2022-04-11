@@ -6,6 +6,7 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.RenderMode
 import com.certified.easyv.R
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
@@ -44,5 +45,8 @@ fun ShapeableImageView.loadImage(image: String?) {
 
 @BindingAdapter("animation")
 fun LottieAnimationView.animation(animation: Int) {
-    this.setAnimation(animation)
+    this.apply {
+        setAnimation(animation)
+        setRenderMode(RenderMode.SOFTWARE)
+    }
 }

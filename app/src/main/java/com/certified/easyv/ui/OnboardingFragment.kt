@@ -18,7 +18,7 @@ class OnboardingFragment : Fragment() {
 
     private var _binding: FragmentOnboardingBinding? = null
     private val binding get() = _binding!!
-    private lateinit var sliderItems: ArrayList<SliderItem>
+    private val sliderItems = mutableListOf<SliderItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,31 +47,30 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun setUpSliderItem() {
-        sliderItems = ArrayList()
         sliderItems.add(
             SliderItem(
-                R.raw.animation_note, getString(R.string.view_pager_title_notes),
-                getString(R.string.view_pager_description_notes)
+                R.raw.lottie_vote, getString(R.string.vote_from_comfort),
+                getString(R.string.vote_from_comfort_description)
             )
         )
         sliderItems.add(
             SliderItem(
-                R.raw.animation_course, getString(R.string.view_pager_title_course),
-                getString(R.string.view_pager_description_courses)
+                R.raw.lottie_process_result, getString(R.string.realtime_result),
+                getString(R.string.realtime_result_description)
             )
         )
         sliderItems.add(
             SliderItem(
-                R.raw.animation_todo, getString(R.string.view_pager_title_todo),
-                getString(R.string.view_pager_description_todos)
+                R.raw.lottie_profile_user_card, getString(R.string.see_candidate_profile),
+                getString(R.string.see_candidate_profile_description)
             )
         )
-        sliderItems.add(
-            SliderItem(
-                R.raw.animation_report, getString(R.string.view_pager_title_report),
-                getString(R.string.view_pager_description_report)
-            )
-        )
+//        sliderItems.add(
+//            SliderItem(
+//                R.raw.animation_report, getString(R.string.view_pager_title_report),
+//                getString(R.string.view_pager_description_report)
+//            )
+//        )
     }
 
     private fun setUpViewPager() {

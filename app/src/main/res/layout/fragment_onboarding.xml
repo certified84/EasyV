@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/btn_get_started"
         app:piv_animationType="worm"
-        app:piv_count="4"
+        app:piv_count="3"
         app:piv_dynamicCount="true"
         app:piv_interactiveAnimation="true"
         app:piv_padding="@dimen/_4sdp"

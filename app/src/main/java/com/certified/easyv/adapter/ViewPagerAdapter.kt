@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.RenderMode
 import com.certified.easyv.data.model.SliderItem
 import com.certified.easyv.databinding.ItemViewPagerBinding
 
@@ -19,8 +18,8 @@ class ViewPagerAdapter(private val sliderItem: List<SliderItem>) :
 
         fun bind(sliderItem: SliderItem) {
             binding.sliderItem = sliderItem
-            binding.animationView.setRenderMode(RenderMode.SOFTWARE)
-            binding.animationView.setAnimation(sliderItem.animation)
+//            binding.animationView.setRenderMode(RenderMode.SOFTWARE)
+//            binding.animationView.setAnimation(sliderItem.animation)
         }
     }
 

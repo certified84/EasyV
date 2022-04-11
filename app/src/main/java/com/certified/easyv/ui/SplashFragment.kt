@@ -35,8 +35,7 @@ class SplashFragment : Fragment() {
             delay(3000L)
             val currentUser = Firebase.auth.currentUser
             if (currentUser == null)
-                findNavController().navigate(R.id.loginFragment)
-//                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
             else
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
         }

@@ -37,4 +37,10 @@
     <string name="and">and</string>
     <string name="terms">Terms</string>
     <string name="read_about_our">Read about our</string>
+    <string name="vote_from_comfort">Vote at your convenience</string>
+    <string name="vote_from_comfort_description">Voting should be a hassel free excercise. Vote for the right person from the comfort of your mobile device.</string>
+    <string name="realtime_result">Realtime Result</string>
+    <string name="realtime_result_description">"Voting should be a very transparent excercise. See how each candidate is performing in realtime. "</string>
+    <string name="see_candidate_profile">See candidate profile</string>
+    <string name="see_candidate_profile_description">Everything you need to know about the candidate is hear. No need looking for information from different sources which could eventually turn out to be false.</string>
 </resources>

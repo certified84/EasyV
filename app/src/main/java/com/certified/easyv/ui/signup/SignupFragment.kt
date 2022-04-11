@@ -1,19 +1,20 @@
 package com.certified.easyv.ui.signup
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.certified.easyv.util.verifyPassword
+import com.certified.easyv.data.model.User
 import com.certified.easyv.databinding.FragmentSignupBinding
 import com.certified.easyv.util.Extensions.checkFieldEmpty
 import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.UIState
 import com.certified.easyv.util.isValidEmail
+import com.certified.easyv.util.verifyPassword
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
@@ -27,7 +28,7 @@ class SignupFragment : Fragment() {
     private val viewModel: SignupViewModel by viewModels()
 
     private lateinit var name: String
-    private lateinit var nin: String
+    private lateinit var matriculation_number: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,13 +56,12 @@ class SignupFragment : Fragment() {
                 if (it) {
                     _success.postValue(false)
                     val currentUser = Firebase.auth.currentUser!!
-//                    val newUser = User(
-//                        id = currentUser.uid,
-//                        name = name,
-//                        email = currentUser.email.toString(),
-//                        location = location,
-//                        nin = nin
-//                    )
+                    val newUser = User(
+                        id = currentUser.uid,
+                        name = name,
+                        email = currentUser.email.toString(),
+                        matriculation_number = matriculation_number
+                    )
 //                    uploadDetails(currentUser.uid, newUser)
                 }
             }
@@ -82,10 +82,30 @@ class SignupFragment : Fragment() {
         }
 
         binding.apply {
+            etMatriculationNumber.doOnTextChanged { text, start, before, count ->
+                if (text != null) {
+                    when (text.length) {
+                        3 -> {
+                            etMatriculationNumber.apply {
+                                setText(text.toString() + "/")
+                                setSelection(etMatriculationNumber.text!!.length)
+                            }
+                        }
+                        6 -> {
+                            etMatriculationNumber.apply {
+                                setText(text.toString() + "/")
+                                setSelection(etMatriculationNumber.text!!.length)
+                            }
+                        }
+                    }
+                }
+            }
+
             btnLogin.setOnClickListener { findNavController().navigate(SignupFragmentDirections.actionSignupFragmentToLoginFragment()) }
 
             btnSignup.setOnClickListener {
                 name = etDisplayName.text.toString().trim()
+                matriculation_number = etMatriculationNumber.text.toString().trim()
                 val email = etEmail.text.toString().trim()
                 val password = etPassword.text.toString().trim()
 
@@ -96,6 +116,9 @@ class SignupFragment : Fragment() {
                     return@setOnClickListener
 
                 if (!isValidEmail(email, etEmail))
+                    return@setOnClickListener
+
+                if (etMatriculationNumber.checkFieldEmpty())
                     return@setOnClickListener
 
                 if (etPassword.checkFieldEmpty())

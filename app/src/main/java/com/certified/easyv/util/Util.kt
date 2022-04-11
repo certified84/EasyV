@@ -82,6 +82,18 @@ fun isValidEmail(email: String, editText: TextInputEditText): Boolean {
     return true
 }
 
+fun isValidMatriculationNumber(matriculationNumber: String, editText: TextInputEditText): Boolean {
+    if (matriculationNumber.length != 10) {
+        editText.apply {
+            error = "Enter a valid matriculation number"
+            requestFocus()
+            return false
+        }
+    }
+
+    return true
+}
+
 fun roundOffDecimal(number: Float): Float {
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.CEILING

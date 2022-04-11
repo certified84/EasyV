@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.certified.easyv.databinding.FragmentPasswordRecoveryBinding
 import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.UIState
+import com.certified.easyv.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,6 +58,9 @@ class PasswordRecoveryFragment : Fragment() {
                     etEmail.requestFocus()
                     return@setOnClickListener
                 }
+
+                if (!isValidEmail(email, etEmail))
+                    return@setOnClickListener
 
                 viewModel.uiState.set(UIState.LOADING)
                 viewModel.sendPasswordResetEmail(email)

@@ -28,4 +28,8 @@
     <string name="privacy">Privacy</string>
     <string name="help_amp_support"><![CDATA[Help & Support]]></string>
     <string name="logout">Logout</string>
+    <string name="password_recovery">Password Recovery</string>
+    <string name="back_button">Back button</string>
+    <string name="password_recovery_summary">Hi there, Kindly enter to email to reset your password</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.certified.easyv.util
 
+import android.util.Patterns
 import com.google.android.material.textfield.TextInputEditText
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -56,6 +57,26 @@ fun verifyPassword(password: String, editText: TextInputEditText): Boolean {
             requestFocus()
         }
         return false
+    }
+
+    return true
+}
+
+fun isValidEmail(email: String, editText: TextInputEditText): Boolean {
+    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        editText.apply {
+            error = "Enter a valid email"
+            requestFocus()
+            return false
+        }
+    }
+
+    if (!email.contains("@futa.edu.ng")) {
+        editText.apply {
+            error = "Only FUTA email is allowed"
+            requestFocus()
+            return false
+        }
     }
 
     return true

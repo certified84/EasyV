@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.certified.easyv.util.verifyPassword
 import com.certified.easyv.databinding.FragmentSignupBinding
 import com.certified.easyv.util.Extensions.checkFieldEmpty
 import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.UIState
+import com.certified.easyv.util.isValidEmail
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
@@ -74,13 +76,13 @@ class SignupFragment : Fragment() {
                         currentUser!!.sendEmailVerification()
                         signOut()
                     }
-//                    findNavController().navigate(SignupFragmentDirections.actionSignupFragmentToLoginFragment())
+                    findNavController().navigate(SignupFragmentDirections.actionSignupFragmentToLoginFragment())
                 }
             }
         }
 
         binding.apply {
-//            btnLogin.setOnClickListener { findNavController().navigate(R.id.action_signupFragment_to_loginFragment) }
+            btnLogin.setOnClickListener { findNavController().navigate(SignupFragmentDirections.actionSignupFragmentToLoginFragment()) }
 
             btnSignup.setOnClickListener {
                 name = etDisplayName.text.toString().trim()
@@ -93,7 +95,8 @@ class SignupFragment : Fragment() {
                 if (etEmail.checkFieldEmpty())
                     return@setOnClickListener
 
-                checkEmail(email)
+                if (!isValidEmail(email, etEmail))
+                    return@setOnClickListener
 
                 if (etPassword.checkFieldEmpty())
                     return@setOnClickListener
@@ -103,16 +106,6 @@ class SignupFragment : Fragment() {
 
                 viewModel.uiState.set(UIState.LOADING)
                 viewModel.createUserWithEmailAndPassword(email, password)
-            }
-        }
-    }
-
-    private fun checkEmail(email: String) {
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmail.apply {
-                error = "Enter a valid email"
-                requestFocus()
-                return
             }
         }
     }

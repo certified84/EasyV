@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -231,13 +232,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             putString(PreferenceKeys.USER_ID_KEY, null)
             putString(PreferenceKeys.USER_NAME_KEY, null)
             putString(PreferenceKeys.USER_EMAIL_KEY, null)
+            putString(PreferenceKeys.USER_MATRICULATION_NUMBER_KEY, null)
             putString(PreferenceKeys.USER_PROFILE_IMAGE_KEY, null)
-            putString(PreferenceKeys.USER_LOCATION_KEY, null)
-            putString(PreferenceKeys.USER_NIN_KEY, null)
-            putString(PreferenceKeys.USER_BIO_KEY, null)
+            putString(PreferenceKeys.USER_ACCOUNT_TYPE_KEY, null)
         }
         auth.signOut()
-//        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
+        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
     }
 
     private fun launchPasswordChangeDialog() {

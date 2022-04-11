@@ -7,5 +7,5 @@ data class User(
     val matriculation_number: String? = "",
     val profile_image: String? = null
 ) {
-    val account_type = if (name.contains("A_")) "admin" else "user"
+    val account_type = if (name.startsWith("A_", ignoreCase = true)) "admin" else "user"
 }

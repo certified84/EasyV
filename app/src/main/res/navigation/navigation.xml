@@ -86,4 +86,9 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/voteFragment"
+        android:name="com.certified.easyv.ui.vote.VoteFragment"
+        android:label="fragment_vote"
+        tools:layout="@layout/fragment_vote" />
 </navigation>

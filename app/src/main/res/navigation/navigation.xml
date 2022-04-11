@@ -91,4 +91,9 @@
         android:name="com.certified.easyv.ui.vote.VoteFragment"
         android:label="fragment_vote"
         tools:layout="@layout/fragment_vote" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.certified.easyv.ui.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>

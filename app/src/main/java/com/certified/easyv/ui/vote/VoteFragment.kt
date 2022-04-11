@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import com.certified.easyv.R
 import com.certified.easyv.databinding.FragmentVoteBinding
 import com.certified.easyv.util.PreferenceKeys
 
@@ -33,6 +35,11 @@ class VoteFragment : Fragment() {
         binding.apply {
             val account_type = preferences.getString(PreferenceKeys.USER_ACCOUNT_TYPE_KEY, "")
             isAdmin = account_type == "admin"
+            isUser = account_type == "user"
+
+            btnResultPage.setOnClickListener {
+                findNavController().navigate(R.id.resultFragment)
+            }
         }
     }
 

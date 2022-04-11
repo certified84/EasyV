@@ -45,4 +45,7 @@
     <string name="see_candidate_profile_description">Everything you need to know about the candidate is hear. No need looking for information from different sources which could eventually turn out to be false.</string>
     <string name="admin_summary">You are an admin and there for, not eligible to vote. Click the button below to add a new candidate</string>
     <string name="add_candidate">Add Candidate</string>
+    <string name="voted_summary">You have already casted your vote. Hence, you are not eligble to vote again. Click the button below to see the results</string>
+    <string name="see_results">See Results</string>
+    <string name="vote_summary">Pick the candidate of your choice by checking the box.</string>
 </resources>

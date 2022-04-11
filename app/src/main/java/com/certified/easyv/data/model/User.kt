@@ -5,7 +5,8 @@ data class User(
     val name: String = "",
     val email: String = "",
     val matriculation_number: String? = "",
-    val profile_image: String? = null
+    val profile_image: String? = null,
+    val voted: Boolean = false
 ) {
     val account_type = if (name.startsWith("A_", ignoreCase = true)) "admin" else "user"
 }

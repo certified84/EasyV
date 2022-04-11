@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_vote"
         android:title="@string/vote" />
     <item
-        android:id="@+id/statusFragment"
+        android:id="@+id/resultFragment"
         android:icon="@drawable/ic_scan"
         android:title="@string/result" />
 

@@ -88,4 +88,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
+
+//   lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+//    page indicator
+    implementation "com.romandanylyk:pageindicatorview:1.0.3@aar"
 }

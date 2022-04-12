@@ -90,10 +90,30 @@
         android:id="@+id/voteFragment"
         android:name="com.certified.easyv.ui.vote.VoteFragment"
         android:label="fragment_vote"
-        tools:layout="@layout/fragment_vote" />
+        tools:layout="@layout/fragment_vote" >
+        <action
+            android:id="@+id/action_voteFragment_to_addCandidateFragment"
+            app:destination="@id/addCandidateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.certified.easyv.ui.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/addCandidateFragment"
+        android:name="com.certified.easyv.ui.candidate.AddCandidateFragment"
+        android:label="fragment_add_candidate"
+        tools:layout="@layout/fragment_add_candidate" >
+        <action
+            android:id="@+id/action_addCandidateFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addCandidateFragment_to_voteFragment"
+            app:destination="@id/voteFragment"
+            app:popUpTo="@id/voteFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

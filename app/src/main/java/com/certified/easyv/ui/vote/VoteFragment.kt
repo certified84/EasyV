@@ -40,6 +40,10 @@ class VoteFragment : Fragment() {
             btnResultPage.setOnClickListener {
                 findNavController().navigate(R.id.resultFragment)
             }
+
+            btnAddCandidate.setOnClickListener {
+                findNavController().navigate(VoteFragmentDirections.actionVoteFragmentToAddCandidateFragment())
+            }
         }
     }
 

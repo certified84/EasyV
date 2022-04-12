@@ -14,7 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ShapeAppearanceOverlay.EasyV" parent="">
+    <style name="ShapeAppearanceOverlayCircle.EasyV" parent="">
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlayCorner.EasyV" parent="">
+        <item name="cornerSize">15%</item>
     </style>
 </resources>

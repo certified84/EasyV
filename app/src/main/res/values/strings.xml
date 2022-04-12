@@ -42,7 +42,7 @@
     <string name="realtime_result">Realtime Result</string>
     <string name="realtime_result_description">"Voting should be a very transparent excercise. See how each candidate is performing in realtime. "</string>
     <string name="see_candidate_profile">See candidate profile</string>
-    <string name="see_candidate_profile_description">Everything you need to know about the candidate is hear. No need looking for information from different sources which could eventually turn out to be false.</string>
+    <string name="see_candidate_profile_description">Accurate information you need to know about the candidate in one place at your finger tips.</string>
     <string name="admin_summary">You are an admin and there for, not eligible to vote. Click the button below to add a new candidate</string>
     <string name="add_candidate">Add Candidate</string>
     <string name="voted_summary">You have already casted your vote. Hence, you are not eligble to vote again. Click the button below to see the results</string>

@@ -1,10 +1,13 @@
 package com.certified.easyv.util
 
+import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.provider.MediaStore
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsClient
 import androidx.browser.customtabs.CustomTabsIntent
@@ -27,9 +30,39 @@ object Extensions {
         } else
             false
     }
+    fun AutoCompleteTextView.checkFieldEmpty(): Boolean {
+        return if (this.text.toString().isBlank()) {
+            with(this) {
+                error = "Required *"
+                requestFocus()
+            }
+            true
+        } else
+            false
+    }
 
     fun Fragment.showToast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
+    }
+
+    fun Fragment.launchCamera(code: Int) {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            startActivityForResult(takePictureIntent, code)
+        } catch (e: ActivityNotFoundException) {
+            showToast("An error occurred: ${e.localizedMessage}")
+        }
+    }
+
+    fun Fragment.chooseFromGallery(code: Int) {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
+        try {
+            this.startActivityForResult(Intent.createChooser(intent, "Select image"), code)
+        } catch (e: ActivityNotFoundException) {
+            showToast("An error occurred: ${e.message}")
+        }
     }
 
     fun Context.openBrowser(url: String) {

@@ -1,6 +1,7 @@
 package com.certified.easyv.data.repository
 
 import android.net.Uri
+import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.data.model.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
@@ -35,6 +36,15 @@ class FirebaseRepository @Inject constructor() {
 
     fun updateProfile(userID: String, uri: String): Task<Void> {
         return Firebase.firestore.collection("users").document(userID)
+            .update("profile_image", uri)
+    }
+
+    fun uploadCandidate(candidate: Candidate): Task<Void> {
+        return Firebase.firestore.collection("candidate").document(candidate.name).set(candidate)
+    }
+
+    fun updateCandidateImage(candidateID: String, uri: String): Task<Void> {
+        return Firebase.firestore.collection("candidate").document(candidateID)
             .update("profile_image", uri)
     }
 

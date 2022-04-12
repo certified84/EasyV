@@ -1,19 +1,16 @@
 package com.certified.easyv.ui.profile
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
@@ -24,6 +21,8 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.certified.easyv.R
 import com.certified.easyv.databinding.FragmentProfileBinding
+import com.certified.easyv.util.Extensions.chooseFromGallery
+import com.certified.easyv.util.Extensions.launchCamera
 import com.certified.easyv.util.Extensions.openBrowser
 import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.PreferenceKeys
@@ -120,35 +119,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         builder.setTitle("Options")
         builder.setSingleChoiceItems(selection, -1) { dialog, which ->
             when (which) {
-                0 -> launchCamera()
-                1 -> chooseFromGallery()
+                0 -> launchCamera(REQUEST_IMAGE_CAPTURE)
+                1 -> chooseFromGallery(PICK_IMAGE_CODE)
             }
             dialog.dismiss()
         }
         builder.show()
-    }
-
-    private fun launchCamera() {
-        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        try {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-        } catch (e: ActivityNotFoundException) {
-            showToast("An error occurred: ${e.localizedMessage}")
-        }
-    }
-
-    private fun chooseFromGallery() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
-        try {
-            startActivityForResult(
-                Intent.createChooser(intent, "Select image"),
-                PICK_IMAGE_CODE
-            )
-        } catch (e: ActivityNotFoundException) {
-            Toast.makeText(context, "An error occurred: ${e.message}", Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

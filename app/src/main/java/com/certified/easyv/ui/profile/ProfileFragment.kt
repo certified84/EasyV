@@ -93,7 +93,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                     transformations(CircleCropTransformation())
                 }
 
-            cbPushNotifications.apply {
+            cbDarkTheme.apply {
                 isChecked = preferences.getBoolean(PreferenceKeys.DARK_MODE, false)
                 setOnCheckedChangeListener { _, isChecked ->
                     preferences.edit {
@@ -188,8 +188,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-//        if (auth.currentUser == null)
-//            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToOnboardingFragment())
+        if (auth.currentUser == null)
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToOnboardingFragment())
     }
 
     override fun onDestroyView() {

@@ -169,7 +169,7 @@
                     app:layout_constraintTop_toTopOf="@+id/appCompatImageView6" />
 
                 <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/cb_push_notifications"
+                    android:id="@+id/cb_dark_theme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimary"

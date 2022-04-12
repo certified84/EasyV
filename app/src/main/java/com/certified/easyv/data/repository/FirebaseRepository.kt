@@ -33,9 +33,9 @@ class FirebaseRepository @Inject constructor() {
         return Firebase.auth.currentUser?.updateProfile(profileChangeRequest)
     }
 
-    fun updateProfile(userID: String): Task<Void> {
-        return Firebase.firestore.collection("accounts").document(userID)
-            .update("profile_image", Firebase.auth.currentUser!!.photoUrl)
+    fun updateProfile(userID: String, uri: String): Task<Void> {
+        return Firebase.firestore.collection("users").document(userID)
+            .update("profile_image", uri)
     }
 
     fun updateNIN(nin: String, userID: String): Task<Void> {

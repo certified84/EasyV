@@ -34,7 +34,7 @@ class ProfileViewModel @Inject constructor(private val repository: FirebaseRepos
                 profileImageRef.putFile(uri!!).await()
                 val downloadUrl = profileImageRef.downloadUrl.await()
                 repository.uploadImage(downloadUrl)?.await()
-//                repository.updateProfile(userID).await()
+                repository.updateProfile(userID, downloadUrl.toString()).await()
                 uiState.set(UIState.SUCCESS)
                 _message.value = "Image uploaded successfully"
             } catch (e: Exception) {

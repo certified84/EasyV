@@ -3,6 +3,7 @@ package com.certified.easyv.data.repository
 import android.net.Uri
 import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.data.model.User
+import com.certified.easyv.data.model.Voter
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -18,10 +19,6 @@ class FirebaseRepository @Inject constructor() {
     fun uploadDetails(userID: String, newUser: User): Task<Void> {
         return Firebase.firestore.collection("users").document(userID).set(newUser)
     }
-//
-//    fun setAccountType(userID: String, accountType: AccountType): Task<Void> {
-//        return Firebase.firestore.collection("account_type").document(userID).set(accountType)
-//    }
 
     fun signInWithEmailAndPassword(email: String, password: String) =
         Firebase.auth.signInWithEmailAndPassword(email, password)
@@ -48,15 +45,12 @@ class FirebaseRepository @Inject constructor() {
             .update("profile_image", uri)
     }
 
-    fun updateNIN(nin: String, userID: String): Task<Void> {
-        return Firebase.firestore.collection("accounts").document(userID).update("nin", nin)
+    fun updateCandidateVoteCount(candidate: Candidate): Task<Void> {
+        return Firebase.firestore.collection("candidate").document(candidate.name)
+            .update("votes", candidate.votes)
     }
 
-    fun updateBio(bio: String, userID: String): Task<Void> {
-        return Firebase.firestore.collection("users").document(userID).update("bio", bio)
-    }
-
-    fun updateName(name: String, userID: String): Task<Void> {
-        return Firebase.firestore.collection("users").document(userID).update("name", name)
+    fun uploadVoter(voter: Voter): Task<Void> {
+        return Firebase.firestore.collection("voter").document(voter.id).set(voter)
     }
 }

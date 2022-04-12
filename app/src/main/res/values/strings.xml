@@ -49,4 +49,20 @@
     <string name="see_results">See Results</string>
     <string name="vote_summary">Pick the candidate of your choice by checking the box.</string>
     <string name="result_summary">Find below the current status of each candidate.</string>
+    <string name="school">School</string>
+    <string name="select">Select</string>
+    <string name="position">Position</string>
+    <string name="description">Description</string>
+    <string name="type_here">Type here…</string>
+    <string-array name="schools">
+        <item>SCHOOL OF ENGINEERING AND ENGINEERING TECHNOLOGY</item>
+        <item>SCHOOL OF AGRICULTURE AND AGRICULTURAL TECHNOLOGY</item>
+        <item>SCHOOL OF EARTH AND MINERAL SCIENCE</item>
+        <item>SCHOOL OF COMPUTING</item>
+        <item>SCHOOL OF ENVIRONMENTAL TECHNOLOGY</item>
+        <item>SCHOOL OF PHYSICAL SCIENCES</item>
+    </string-array>
+    <string-array name="positions">
+        <item>Presidential Candidate</item>
+    </string-array>
 </resources>

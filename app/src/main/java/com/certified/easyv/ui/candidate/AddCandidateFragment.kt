@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.certified.easyv.R
 import com.certified.easyv.databinding.FragmentAddCandidateBinding
 import com.certified.easyv.ui.login.LoginViewModel
 
@@ -33,6 +35,26 @@ class AddCandidateFragment : Fragment() {
             btnBack.setOnClickListener {
                 findNavController().navigate(AddCandidateFragmentDirections.actionAddCandidateFragmentToVoteFragment())
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.apply {
+
+            val schoolsArrayAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                requireContext().resources.getStringArray(R.array.schools)
+            )
+            etSchool.setAdapter(schoolsArrayAdapter)
+
+            val positionArrayAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                requireContext().resources.getStringArray(R.array.positions)
+            )
+            etPost.setAdapter(positionArrayAdapter)
         }
     }
 

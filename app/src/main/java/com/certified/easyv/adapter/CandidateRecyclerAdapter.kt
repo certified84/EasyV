@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.certified.easyv.data.model.Candidate
+import com.certified.easyv.databinding.ItemCandidateHomeBinding
 import com.certified.easyv.databinding.ItemCandidateResultBinding
 import com.certified.easyv.databinding.ItemCandidateVoteBinding
 
@@ -37,6 +38,22 @@ class CandidateRecyclerAdapter(private val where: String) :
         }
     }
 
+    inner class CandidateHomeViewHolder(val binding: ItemCandidateHomeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(candidate: Candidate) {
+            binding.candidate = candidate
+        }
+
+        init {
+            itemView.setOnClickListener {
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(getItem(position), false)
+                }
+            }
+        }
+    }
+
     interface OnItemClickedListener {
         fun onItemClick(candidate: Candidate, vote: Boolean)
     }
@@ -57,30 +74,47 @@ class CandidateRecyclerAdapter(private val where: String) :
 
     override fun getItemViewType(position: Int): Int {
         val currentItem = getItem(position)
-        return if (where == "result") 0 else 1
+        return if (where == "result") 0 else if (where == "vote") 1 else 2
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == 0) {
-            val binding =
-                ItemCandidateResultBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
-            CandidateResultViewHolder(binding)
-        } else {
-            val binding =
-                ItemCandidateVoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            CandidateVoteViewHolder(binding)
+        return when (viewType) {
+            0 -> {
+                val binding =
+                    ItemCandidateResultBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                CandidateResultViewHolder(binding)
+            }
+            1 -> {
+                val binding =
+                    ItemCandidateVoteBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                CandidateVoteViewHolder(binding)
+            }
+            else -> {
+                val binding =
+                    ItemCandidateHomeBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                CandidateHomeViewHolder(binding)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentItem = getItem(position)
-        if (where == "result")
-            (holder as CandidateResultViewHolder).bind(currentItem)
-        else
-            (holder as CandidateVoteViewHolder).bind(currentItem)
+        when (where) {
+            "result" -> (holder as CandidateResultViewHolder).bind(currentItem)
+            "vote" -> (holder as CandidateVoteViewHolder).bind(currentItem)
+            else -> (holder as CandidateHomeViewHolder).bind(currentItem)
+        }
     }
 }

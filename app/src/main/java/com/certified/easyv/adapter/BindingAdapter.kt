@@ -6,6 +6,8 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.certified.easyv.R
 import com.certified.easyv.data.model.Candidate
 import com.google.android.material.imageview.ShapeableImageView
@@ -41,6 +43,18 @@ fun MaterialTextView.parseServerTime(time: String) {
 fun ShapeableImageView.loadImage(image: String?) {
     if (image != null) this.load(image)
     else this.load(R.drawable.no_profile_image)
+}
+
+@BindingAdapter("loadCircleImage")
+fun ShapeableImageView.loadCircleImage(image: String?) {
+    if (image != null) this.load(image) { transformations(CircleCropTransformation()) }
+    else this.load(R.drawable.no_profile_image) { transformations(CircleCropTransformation()) }
+}
+
+@BindingAdapter("loadRoundCornerImage")
+fun ShapeableImageView.loadRoundCornerImage(image: String?) {
+    if (image != null) this.load(image) { transformations(RoundedCornersTransformation(20f)) }
+    else this.load(R.drawable.no_profile_image) { transformations(RoundedCornersTransformation(20f)) }
 }
 
 @BindingAdapter("listCandidates")

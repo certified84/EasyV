@@ -79,8 +79,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_candidates"
                     android:layout_width="0dp"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:minHeight="@dimen/_200sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

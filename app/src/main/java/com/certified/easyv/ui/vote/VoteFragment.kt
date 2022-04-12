@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.certified.easyv.R
+import com.certified.easyv.adapter.CandidateRecyclerAdapter
+import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.databinding.FragmentVoteBinding
 import com.certified.easyv.util.PreferenceKeys
 
@@ -32,10 +35,25 @@ class VoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.uiState = viewModel.uiState
+
         binding.apply {
+            val adapter = CandidateRecyclerAdapter("vote")
+            recyclerViewCandidates.adapter = adapter
+            recyclerViewCandidates.layoutManager = LinearLayoutManager(requireContext())
+            adapter.setOnItemClickedListener(object : CandidateRecyclerAdapter.OnItemClickedListener {
+                override fun onItemClick(candidate: Candidate, vote: Boolean) {
+//                    TODO("Not yet implemented")
+                }
+            })
+
             val account_type = preferences.getString(PreferenceKeys.USER_ACCOUNT_TYPE_KEY, "")
             isAdmin = account_type == "admin"
             isUser = account_type == "user"
+            isVoted = false
 
             btnResultPage.setOnClickListener {
                 findNavController().navigate(R.id.resultFragment)

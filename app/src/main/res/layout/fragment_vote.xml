@@ -5,6 +5,18 @@
 
     <data>
 
+        <import type="androidx.databinding.ObservableField" />
+
+        <import type="com.certified.easyv.util.UIState" />
+
+        <variable
+            name="uiState"
+            type="ObservableField&lt;UIState>" />
+
+        <variable
+            name="viewModel"
+            type="com.certified.easyv.ui.vote.VoteViewModel" />
+
         <variable
             name="isAdmin"
             type="Boolean" />
@@ -60,6 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialTextView6"
+            app:listCandidates="@{viewModel.candidates}"
             tools:listitem="@layout/item_candidate_vote" />
 
         <androidx.constraintlayout.widget.Group
@@ -67,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="materialTextView6, recycler_view_candidates"
-            app:visible="@{isUser}"
+            app:visible="@{isUser &amp;&amp; !isVoted &amp;&amp; uiState == UIState.HAS_DATA}"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -160,6 +173,36 @@
             app:constraint_referenced_ids="materialTextView5, btn_result_page"
             app:visible="@{isVoted}"
             tools:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:alpha=".7"
+            android:fontFamily="@font/space_grotesk_regular"
+            android:text="@string/no_candidate_summary"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visible="@{isUser &amp;&amp; uiState == UIState.EMPTY}"
+            tools:visibility="gone" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:indicatorColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visible="@{uiState == UIState.LOADING}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -44,7 +44,7 @@ fun ShapeableImageView.loadImage(image: String?) {
 }
 
 @BindingAdapter("listCandidates")
-fun bindUserChatListRecyclerView(
+fun bindUCandidatesRecyclerView(
     recyclerView: RecyclerView,
     data: List<Candidate>?
 ) {

@@ -16,9 +16,7 @@ import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class ResultFragment : Fragment() {
 
     private var _binding: FragmentResultBinding? = null
@@ -51,7 +49,12 @@ class ResultFragment : Fragment() {
             val pieEntry = mutableListOf<PieEntry>()
             viewModel?.candidates?.observe(viewLifecycleOwner) {
                 for (candidate in it) {
-                    pieEntry.add(PieEntry(candidate.votes.toFloat(), candidate.name.substringBefore(" ")))
+                    pieEntry.add(
+                        PieEntry(
+                            candidate.votes.toFloat(),
+                            candidate.name.substringBefore(" ")
+                        )
+                    )
                 }
             }
             val pieDataSet = PieDataSet(pieEntry, "")

@@ -39,12 +39,6 @@ fun MaterialTextView.parseServerTime(time: String) {
         time
 }
 
-@BindingAdapter("load_image")
-fun ShapeableImageView.loadImage(image: String?) {
-    if (image != null) this.load(image)
-    else this.load(R.drawable.no_profile_image)
-}
-
 @BindingAdapter("loadCircleImage")
 fun ShapeableImageView.loadCircleImage(image: String?) {
     if (image != null) this.load(image) { transformations(CircleCropTransformation()) }

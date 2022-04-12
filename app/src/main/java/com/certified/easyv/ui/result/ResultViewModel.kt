@@ -6,18 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.certified.easyv.data.model.Candidate
-import com.certified.easyv.data.repository.FirebaseRepository
 import com.certified.easyv.util.UIState
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class ResultViewModel @Inject constructor(private val repository: FirebaseRepository) :
-    ViewModel() {
+class ResultViewModel : ViewModel() {
 
     val uiState = ObservableField(UIState.EMPTY)
 

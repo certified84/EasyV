@@ -16,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.certified.easyv.R
 import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.databinding.FragmentAddCandidateBinding
@@ -156,7 +157,7 @@ class AddCandidateFragment : Fragment() {
                 imageUri = Uri.fromFile(file)
 
                 binding.ivProfileImage.load(imageUri) {
-                    transformations(CircleCropTransformation())
+                    transformations(RoundedCornersTransformation(20f))
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -166,7 +167,7 @@ class AddCandidateFragment : Fragment() {
             try {
                 imageUri = data?.data
                 binding.ivProfileImage.load(imageUri) {
-                    transformations(CircleCropTransformation())
+                    transformations(RoundedCornersTransformation(20f))
                 }
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()

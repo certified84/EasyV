@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.certified.easyv.R
 import com.certified.easyv.adapter.CandidateRecyclerAdapter
 import com.certified.easyv.data.model.Candidate
+import com.certified.easyv.databinding.DialogCandiateDetailsBinding
 import com.certified.easyv.databinding.FragmentHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import me.ibrahimsn.lib.SmoothBottomBar
 
 class HomeFragment : Fragment() {
@@ -46,10 +48,20 @@ class HomeFragment : Fragment() {
             adapter.setOnItemClickedListener(object :
                 CandidateRecyclerAdapter.OnItemClickedListener {
                 override fun onItemClick(candidate: Candidate, vote: Boolean) {
-//                    TODO("Not yet implemented")
+                    launchDetailsDialog(candidate)
                 }
             })
         }
+    }
+
+    private fun launchDetailsDialog(candidate: Candidate) {
+        val view = DialogCandiateDetailsBinding.inflate(layoutInflater)
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        view.apply {
+            view.candidate = candidate
+        }
+        bottomSheetDialog.setContentView(view.root)
+        bottomSheetDialog.show()
     }
 
     override fun onResume() {

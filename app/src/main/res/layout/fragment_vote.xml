@@ -51,15 +51,16 @@
             app:layout_constraintTop_toBottomOf="@+id/materialTextView3" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_candidates"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:id="@+id/recycler_view_candidates"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextView6" />
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView6"
+            tools:listitem="@layout/item_candidate_vote" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group_user"

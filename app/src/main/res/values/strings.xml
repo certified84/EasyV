@@ -48,4 +48,5 @@
     <string name="voted_summary">You have already casted your vote. Hence, you are not eligble to vote again. Click the button below to see the results</string>
     <string name="see_results">See Results</string>
     <string name="vote_summary">Pick the candidate of your choice by checking the box.</string>
+    <string name="result_summary">Find below the current status of each candidate.</string>
 </resources>

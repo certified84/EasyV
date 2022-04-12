@@ -4,8 +4,10 @@ import android.os.Build
 import android.text.Html
 import android.view.View
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.certified.easyv.R
+import com.certified.easyv.data.model.Candidate
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
 import java.time.ZoneId
@@ -39,4 +41,13 @@ fun MaterialTextView.parseServerTime(time: String) {
 fun ShapeableImageView.loadImage(image: String?) {
     if (image != null) this.load(image)
     else this.load(R.drawable.no_profile_image)
+}
+
+@BindingAdapter("listCandidates")
+fun bindUserChatListRecyclerView(
+    recyclerView: RecyclerView,
+    data: List<Candidate>?
+) {
+    val adapter = recyclerView.adapter as CandidateRecyclerAdapter
+    adapter.submitList(data)
 }

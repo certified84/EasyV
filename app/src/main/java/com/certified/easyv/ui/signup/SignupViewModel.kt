@@ -45,7 +45,6 @@ class SignupViewModel @Inject constructor(private val repository: FirebaseReposi
         viewModelScope.launch {
             try {
                 repository.uploadDetails(userID, newUser).await()
-//                repository.setAccountType(userID, AccountType()).await()
                 uiState.set(UIState.SUCCESS)
                 _uploadSuccess.value = true
                 _message.value =

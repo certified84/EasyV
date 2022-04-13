@@ -26,7 +26,7 @@ class ResultViewModel : ViewModel() {
     private fun getCandidates() {
         viewModelScope.launch {
             val query = Firebase.firestore.collection("candidate")
-                .orderBy("id", Query.Direction.DESCENDING)
+                .orderBy("votes", Query.Direction.DESCENDING)
             query.addSnapshotListener { value, error ->
                 if (value != null && !value.isEmpty) {
                     uiState.set(UIState.HAS_DATA)

@@ -27,19 +27,18 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_profile_image"
             android:layout_width="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:src="@drawable/no_profile_image"
-            app:layout_constraintBottom_toBottomOf="@+id/materialTextView16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/materialTextView14"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView5"
             app:loadRoundCornerImage="@{candidate.profile_image}"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayCorner.EasyV" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView14"
             android:layout_width="0dp"
-            android:layout_marginTop="@dimen/_16sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
@@ -47,23 +46,28 @@
             android:text="@{candidate.name}"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toTopOf="@+id/materialTextView15"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView5"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile_image"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="Samson Achiaga" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView15"
             android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:fontFamily="@font/space_grotesk_regular"
             android:text="@{candidate.post}"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toTopOf="@+id/materialTextView16"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
             app:layout_constraintTop_toBottomOf="@+id/materialTextView14"
             tools:text="Presidential Candidate" />
@@ -71,20 +75,23 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView16"
             android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:fontFamily="@font/space_grotesk_regular"
             android:text="@{candidate.school}"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_profile_image"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
             app:layout_constraintTop_toBottomOf="@+id/materialTextView15"
             tools:text="School of Engineering and Engineering Technology" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView19"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
@@ -96,7 +103,7 @@
             android:textSize="@dimen/_14ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/iv_profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextView16"
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile_image"
             tools:text="School of Engineering and Engineering Technology" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

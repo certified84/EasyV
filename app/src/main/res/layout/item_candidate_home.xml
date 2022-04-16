@@ -24,13 +24,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/shapeableImageView"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:loadRoundCornerImage="@{candidate.profile_image}"
+                app:load_image="@{candidate.profile_image}"
                 tools:src="@tools:sample/avatars" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -57,11 +56,11 @@
                 android:id="@+id/tv_candidate_position"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:ellipsize="end"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
                 android:fontFamily="@font/space_grotesk_regular"
                 android:maxLines="2"
                 android:text="@{candidate.school}"
@@ -70,6 +69,7 @@
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_candidate_name"
                 tools:text="School of Engineering and Engineering Technology" />

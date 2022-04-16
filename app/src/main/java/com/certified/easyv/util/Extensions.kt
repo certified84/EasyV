@@ -9,10 +9,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import androidx.browser.customtabs.CustomTabsClient
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.browser.customtabs.CustomTabsServiceConnection
-import androidx.browser.customtabs.CustomTabsSession
+import androidx.browser.customtabs.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.certified.easyv.R
@@ -30,6 +27,7 @@ object Extensions {
         } else
             false
     }
+
     fun AutoCompleteTextView.checkFieldEmpty(): Boolean {
         return if (this.text.toString().isBlank()) {
             with(this) {
@@ -99,13 +97,16 @@ object Extensions {
             customTabsServiceConnection
         )
         val customTabsIntent = CustomTabsIntent.Builder(customTabsSession)
-            .setShowTitle(true).setToolbarColor(
-                ResourcesCompat.getColor(
-                    context.resources,
-                    R.color.colorPrimary,
-                    null
-                )
-            ).build()
+            .setShowTitle(true).setDefaultColorSchemeParams(
+                CustomTabColorSchemeParams.Builder().setToolbarColor(
+                    ResourcesCompat.getColor(
+                        context.resources,
+                        R.color.colorPrimary,
+                        null
+                    )
+                ).build()
+            )
+            .build()
 
         customTabsIntent.launchUrl(context, Uri.parse(url))
     }

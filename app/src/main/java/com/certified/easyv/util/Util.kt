@@ -71,13 +71,13 @@ fun isValidEmail(email: String, editText: TextInputEditText): Boolean {
         }
     }
 
-    if (!email.contains("@futa.edu.ng")) {
-        editText.apply {
-            error = "Only FUTA email is allowed"
-            requestFocus()
-            return false
-        }
-    }
+//    if (!email.contains("@futa.edu.ng")) {
+//        editText.apply {
+//            error = "Only FUTA email is allowed"
+//            requestFocus()
+//            return false
+//        }
+//    }
 
     return true
 }
@@ -92,24 +92,4 @@ fun isValidMatriculationNumber(matriculationNumber: String, editText: TextInputE
     }
 
     return true
-}
-
-fun roundOffDecimal(number: Float): Float {
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.CEILING
-    return df.format(number).toFloat()
-}
-
-fun currentDate(): Calendar = Calendar.getInstance()
-
-fun formatTime(date: Long): String =
-    SimpleDateFormat("h:mm a", Locale.getDefault()).format(date)
-
-fun formatChatDate(date: Long): String {
-    val day = TimeUnit.MILLISECONDS.toDays(Date().time - date)
-    return when {
-        day <= 1 -> "Today"
-        day <= 2 -> "Yesterday"
-        else -> SimpleDateFormat("MMM, DD", Locale.getDefault()).format(date)
-    }
 }

@@ -57,6 +57,8 @@
     <string name="no_candidate_summary">There are no candidates at the moment. Kindly check back later.</string>
     <string name="home_summary">Find below the candidates in the ongoing election. Click a candidate to view more information about them.</string>
     <string name="app_slogan">The hassle-free voting platform</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
     <string-array name="schools">
         <item>SCHOOL OF ENGINEERING AND ENGINEERING TECHNOLOGY</item>
         <item>SCHOOL OF AGRICULTURE AND AGRICULTURAL TECHNOLOGY</item>

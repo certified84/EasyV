@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
+import coil.transform.Transformation
 import com.certified.easyv.R
 import com.certified.easyv.data.model.Candidate
 import com.google.android.material.imageview.ShapeableImageView
@@ -49,6 +50,13 @@ fun ShapeableImageView.loadCircleImage(image: String?) {
 fun ShapeableImageView.loadRoundCornerImage(image: String?) {
     if (image != null) this.load(image) { transformations(RoundedCornersTransformation(20f)) }
     else this.load(R.drawable.no_profile_image) { transformations(RoundedCornersTransformation(20f)) }
+}
+
+@BindingAdapter("load_image")
+fun ShapeableImageView.loadImage(image: String?) {
+    if (image != null) this.load(image) {
+    }
+    else this.load(R.drawable.no_profile_image)
 }
 
 @BindingAdapter("listCandidates")

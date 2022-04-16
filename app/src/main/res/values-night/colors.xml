@@ -7,19 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_night_black_day">@color/black</color>
-    <color name="white_day_black_night">@color/white</color>
+    <color name="white_night_black_day">@color/white</color>
+    <color name="white_day_black_night">@color/black</color>
 
-    <color name="colorPrimary">#992DA0</color>
-    <color name="colorOnPrimary">#FFD8E4</color>
+    <color name="colorPrimary">#FFA8FF</color>
+    <color name="colorOnPrimary">#590062</color>
     <color name="colorPrimaryDark">#37003D</color>
-    <color name="colorSecondary">#625B71</color>
-    <color name="colorSecondaryDark">#1D192B</color>
+    <color name="colorSecondary">#CCC2DC</color>
+    <color name="colorSecondaryDark">#4A4458</color>
     <color name="yellow">#EDA61B</color>
-    <color name="editTextColor">#E6E6FF</color>
+    <color name="editTextColor">#474747</color>
     <color name="red">#ED1B35</color>
     <color name="iconTintInactive">#EBCCED</color>
-    <color name="overlay">#F5EAF5</color>
+    <color name="overlay">#8F514E51</color>
     <color name="grey">#dedcdc</color>
     <!--    <color name="grey">#C4C4C4</color>-->
     <color name="ash">#909090</color>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/white_day_black_night"
     tools:context=".ui.SplashFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/space_grotesk_semi_bold"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="@color/white_night_black_day"
         android:textSize="@dimen/_24ssp"
         app:layout_constraintBottom_toTopOf="@+id/materialTextView18"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/space_grotesk_regular"
         android:text="@string/app_slogan"
-        android:textColor="@color/black"
+        android:textColor="@color/white_night_black_day"
         android:textSize="@dimen/_14ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

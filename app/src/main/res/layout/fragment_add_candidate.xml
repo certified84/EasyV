@@ -29,7 +29,7 @@
             android:paddingEnd="@dimen/_8sdp"
             android:text="@string/add_candidate"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +54,10 @@
             android:layout_marginTop="@dimen/_24sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_heading">
+            app:layout_constraintTop_toBottomOf="@+id/tv_heading"
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -66,11 +68,11 @@
                     android:id="@+id/iv_profile_image"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
+                    android:src="@drawable/no_profile_image"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayCorner.EasyV"
-                    android:src="@drawable/no_profile_image" />
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayCorner.EasyV" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btn_change_image"
@@ -92,7 +94,7 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/space_grotesk_medium"
                     android:text="@string/full_name"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white_night_black_day"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/iv_profile_image" />
@@ -124,7 +126,7 @@
                         android:inputType="textPersonName"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white_night_black_day" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,7 +137,7 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/space_grotesk_medium"
                     android:text="@string/school"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white_night_black_day"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="@+id/et_display_name_layout"
                     app:layout_constraintTop_toBottomOf="@+id/et_display_name_layout" />
@@ -167,7 +169,7 @@
                         android:inputType="none"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white_night_black_day"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,7 +180,7 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/space_grotesk_medium"
                     android:text="@string/position"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white_night_black_day"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="@+id/et_display_name_layout"
                     app:layout_constraintTop_toBottomOf="@+id/et_school_layout" />
@@ -210,7 +212,7 @@
                         android:inputType="none"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white_night_black_day" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -221,7 +223,7 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:fontFamily="@font/space_grotesk_medium"
                     android:text="@string/description"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white_night_black_day"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="@+id/et_display_name_layout"
                     app:layout_constraintTop_toBottomOf="@+id/et_post_layout" />
@@ -254,7 +256,7 @@
                         android:inputType="textMultiLine"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white_night_black_day" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -270,7 +272,7 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:text="@string/add_candidate"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/white_night_black_day"
                     android:textSize="@dimen/_14ssp"
                     app:cornerRadius="@dimen/_16sdp"
                     app:layout_constraintEnd_toEndOf="parent"

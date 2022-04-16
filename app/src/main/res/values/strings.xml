@@ -59,6 +59,7 @@
     <string name="app_slogan">The hassle-free voting platform</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
+    <string name="votes">Votes</string>
     <string-array name="schools">
         <item>SCHOOL OF ENGINEERING AND ENGINEERING TECHNOLOGY</item>
         <item>SCHOOL OF AGRICULTURE AND AGRICULTURAL TECHNOLOGY</item>

@@ -20,21 +20,21 @@
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/navigation" />
 
-        <me.ibrahimsn.lib.SmoothBottomBar
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            app:backgroundColor="@color/white"
-            app:iconSize="@dimen/_20sdp"
-            app:iconTint="@color/iconTintInactive"
-            app:textSize="@dimen/_12ssp"
-            app:indicatorColor="@color/overlay"
-            app:iconTintActive="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu"
-            app:textColor="@color/colorPrimary" />
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:backgroundColor="@color/white_day_black_night"
+        app:iconSize="@dimen/_20sdp"
+        app:iconTint="@color/iconTintInactive"
+        app:iconTintActive="@color/colorPrimary"
+        app:indicatorColor="@color/overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        app:textColor="@color/colorPrimary"
+        app:textSize="@dimen/_12ssp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

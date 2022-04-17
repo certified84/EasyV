@@ -14,11 +14,15 @@ import com.certified.easyv.adapter.CandidateRecyclerAdapter
 import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.databinding.DialogCandiateDetailsBinding
 import com.certified.easyv.databinding.FragmentHomeBinding
+import com.certified.easyv.util.Extensions.showToast
 import com.certified.easyv.util.PreferenceKeys
+import com.certified.easyv.util.UIState
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import me.ibrahimsn.lib.SmoothBottomBar
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -40,6 +44,13 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.uiState = viewModel.uiState
+
+        viewModel.message.observe(viewLifecycleOwner) {
+            if (it != null) {
+                showToast(it)
+                viewModel._message.postValue(null)
+            }
+        }
 
         binding.apply {
             val adapter = CandidateRecyclerAdapter("home")
@@ -91,6 +102,10 @@ class HomeFragment : Fragment() {
             setMessage("Are you sure you want to delete ${candidate.name}?\nThis action cannot be undone.")
             setPositiveButton("Yes") { dialog, _ ->
                 dialog.dismiss()
+                viewModel.apply {
+                    uiState.set(UIState.LOADING)
+                    deleteCandidate(candidate)
+                }
             }
             setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()

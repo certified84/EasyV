@@ -44,6 +44,10 @@ class FirebaseRepository @Inject constructor() {
         return Firebase.firestore.collection("candidate").document(candidate.name).set(candidate)
     }
 
+    fun deleteCandidate(candidate: Candidate): Task<Void> {
+        return Firebase.firestore.collection("candidate").document(candidate.name).delete()
+    }
+
     fun updateCandidateImage(candidateID: String, uri: String): Task<Void> {
         return Firebase.firestore.collection("candidate").document(candidateID)
             .update("profile_image", uri)

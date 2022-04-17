@@ -102,21 +102,21 @@ class SignupFragment : Fragment() {
 //                }
 //            }
 
-            val mKeyListener = etMatriculationNumber.keyListener
-            etDisplayName.doOnTextChanged { text, _, _, _ ->
-                if (text != null){
-                    if (text.startsWith("A_", ignoreCase = true))
-                        etMatriculationNumber.apply {
-                            keyListener = null
-                            alpha = 0.5F
-                        }
-                    else
-                        etMatriculationNumber.apply {
-                            keyListener = mKeyListener
-                            alpha = 1F
-                        }
-                }
-            }
+//            val mKeyListener = etMatriculationNumber.keyListener
+//            etDisplayName.doOnTextChanged { text, _, _, _ ->
+//                if (text != null){
+//                    if (text.startsWith("A_", ignoreCase = true))
+//                        etMatriculationNumber.apply {
+//                            keyListener = null
+//                            alpha = 0.5F
+//                        }
+//                    else
+//                        etMatriculationNumber.apply {
+//                            keyListener = mKeyListener
+//                            alpha = 1F
+//                        }
+//                }
+//            }
 
             btnLogin.setOnClickListener { findNavController().navigate(SignupFragmentDirections.actionSignupFragmentToLoginFragment()) }
 

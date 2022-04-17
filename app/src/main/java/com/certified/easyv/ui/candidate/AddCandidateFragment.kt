@@ -79,19 +79,21 @@ class AddCandidateFragment : Fragment() {
         }
 
         binding.apply {
-            binding.candidate = args.candidate
+            candidate = args.candidate
             if (args.candidate != null) {
                 btnAddCandidate.text = "Update Candidate"
                 tvHeading.text = "Update Candidate"
+                etDisplayName.apply {
+                    keyListener = null
+                    alpha = 0.5F
+                }
             }
 
             btnBack.setOnClickListener {
                 findNavController().navigate(AddCandidateFragmentDirections.actionAddCandidateFragmentToVoteFragment())
             }
             btnChangeImage.setOnClickListener {
-//                if (etDisplayName.text.toString().isNotBlank())
                 launchChangeProfileImageDialog()
-//                else showToast("Please enter display name first")
             }
             btnAddCandidate.setOnClickListener {
                 val name = etDisplayName.text.toString()
@@ -111,24 +113,34 @@ class AddCandidateFragment : Fragment() {
                 if (etDescription.checkFieldEmpty())
                     return@setOnClickListener
 
-                if (imageUri == null) {
+                if (args.candidate == null && imageUri == null) {
                     showToast("Please select image first")
                     return@setOnClickListener
                 }
 
                 val path = "profileImages/${binding.etDisplayName.text.toString()}/profileImage.jpg"
                 viewModel.uiState.set(UIState.LOADING)
-                viewModel.uploadCandidate(
-                    imageUri,
-                    path,
-                    storage,
-                    Candidate(
-                        name = name,
-                        school = school,
-                        description = description,
-                        position = position
+                if (args.candidate != null)
+                    viewModel.updateCandidate(
+                        imageUri, path, storage,
+                        args.candidate!!.copy(
+                            school = school,
+                            description = description,
+                            position = position
+                        )
                     )
-                )
+                else
+                    viewModel.uploadCandidate(
+                        imageUri,
+                        path,
+                        storage,
+                        Candidate(
+                            name = name,
+                            school = school,
+                            description = description,
+                            position = position
+                        )
+                    )
             }
         }
     }

@@ -47,4 +47,26 @@ class AddCandidateViewModel @Inject constructor(private val repository: Firebase
             }
         }
     }
+
+    fun updateCandidate(uri: Uri?, path: String, storage: FirebaseStorage, candidate: Candidate) {
+        viewModelScope.launch {
+            try {
+                repository.updateCandidate(candidate).await()
+                if (uri != null) {
+                    val profileImageRef = storage.reference.child(path)
+                    profileImageRef.putFile(uri).await()
+                    val downloadUrl = profileImageRef.downloadUrl.await()
+                    repository.updateCandidateImage(candidate.name, downloadUrl.toString()).await()
+                }
+                uiState.set(UIState.SUCCESS)
+                _success.value = true
+                _message.value = "Candidate updated successfully"
+            } catch (e: Exception) {
+                uiState.set(UIState.FAILURE)
+                _success.value = false
+                _message.value = "An error occurred: ${e.localizedMessage}"
+                Log.d("TAG", "uploadImage: Error: ${e.localizedMessage}")
+            }
+        }
+    }
 }

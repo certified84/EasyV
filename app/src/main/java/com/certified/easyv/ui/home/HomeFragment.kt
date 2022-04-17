@@ -95,6 +95,7 @@ class HomeFragment : Fragment() {
             setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()
             }
+            show()
         }
     }
 

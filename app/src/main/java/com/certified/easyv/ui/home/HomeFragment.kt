@@ -72,6 +72,7 @@ class HomeFragment : Fragment() {
                 launchDeleteDialog(candidate)
             }
             btnUpdate.setOnClickListener {
+                bottomSheetDialog.dismiss()
                 findNavController().navigate(
                     HomeFragmentDirections.actionHomeFragmentToAddCandidateFragment(
                         candidate

@@ -121,7 +121,7 @@
             android:fontFamily="@font/space_grotesk_semi_bold"
             android:text="@string/update"
             android:textAllCaps="false"
-            android:textColor="@color/white_night_black_day"
+            android:textColor="@color/white"
             android:textSize="@dimen/_14ssp"
             app:cornerRadius="@dimen/_15sdp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -60,6 +60,9 @@
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="votes">Votes</string>
+    <string name="phone_number_hint">e.g +2349024756184</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
     <string-array name="schools">
         <item>SCHOOL OF ENGINEERING AND ENGINEERING TECHNOLOGY</item>
         <item>SCHOOL OF AGRICULTURE AND AGRICULTURAL TECHNOLOGY</item>

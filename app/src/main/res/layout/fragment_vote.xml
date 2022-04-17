@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="materialTextView6, recycler_view_candidates"
             app:visible="@{isUser &amp;&amp; !isVoted &amp;&amp; uiState == UIState.HAS_DATA}"
-            tools:visibility="visible" />
+            tools:visibility="gone" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView4"
@@ -92,7 +92,7 @@
             android:fontFamily="@font/space_grotesk_regular"
             android:text="@string/admin_summary"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_13ssp"
             app:layout_constraintBottom_toTopOf="@+id/btn_add_candidate"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +112,7 @@
             android:paddingBottom="@dimen/_8sdp"
             android:text="@string/add_candidate"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_14ssp"
             app:cornerRadius="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
             android:fontFamily="@font/space_grotesk_regular"
             android:text="@string/voted_summary"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_13ssp"
             app:layout_constraintBottom_toTopOf="@+id/btn_result_page"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +157,7 @@
             android:paddingBottom="@dimen/_8sdp"
             android:text="@string/see_results"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_14ssp"
             app:cornerRadius="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -172,7 +172,7 @@
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="materialTextView5, btn_result_page"
             app:visible="@{isVoted}"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView7"

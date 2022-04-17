@@ -136,7 +136,7 @@ class VoteFragment : Fragment() {
             }
 
             btnAddCandidate.setOnClickListener {
-                findNavController().navigate(VoteFragmentDirections.actionVoteFragmentToAddCandidateFragment())
+                findNavController().navigate(VoteFragmentDirections.actionVoteFragmentToAddCandidateFragment(null))
             }
         }
     }

@@ -8,6 +8,10 @@
         <variable
             name="candidate"
             type="com.certified.easyv.data.model.Candidate" />
+
+        <variable
+            name="isAdmin"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +67,7 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:fontFamily="@font/space_grotesk_regular"
-            android:text="@{candidate.post}"
+            android:text="@{candidate.position}"
             android:textColor="@color/white_night_black_day"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toTopOf="@+id/materialTextView16"
@@ -106,6 +110,47 @@
             app:layout_constraintStart_toStartOf="@+id/iv_profile_image"
             app:layout_constraintTop_toBottomOf="@+id/iv_profile_image"
             tools:text="School of Engineering and Engineering Technology" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/space_grotesk_semi_bold"
+            android:text="@string/update"
+            android:textAllCaps="false"
+            android:textColor="@color/white_night_black_day"
+            android:textSize="@dimen/_14ssp"
+            app:cornerRadius="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintTop_toTopOf="@+id/btn_delete" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_delete"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:fontFamily="@font/space_grotesk_semi_bold"
+            android:text="@string/delete"
+            android:textAllCaps="false"
+            android:textColor="@color/white_night_black_day"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/materialTextView19"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView19"
+            app:strokeColor="@color/colorPrimary" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="btn_update,btn_delete"
+            app:visible="@{isAdmin}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

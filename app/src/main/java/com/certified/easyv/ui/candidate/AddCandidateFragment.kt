@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
@@ -43,6 +44,7 @@ class AddCandidateFragment : Fragment() {
     private lateinit var preferences: SharedPreferences
     private lateinit var storage: FirebaseStorage
     private var imageUri: Uri? = null
+    private val args: AddCandidateFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,6 +79,12 @@ class AddCandidateFragment : Fragment() {
         }
 
         binding.apply {
+            binding.candidate = args.candidate
+            if (args.candidate != null) {
+                btnAddCandidate.text = "Update Candidate"
+                tvHeading.text = "Update Candidate"
+            }
+
             btnBack.setOnClickListener {
                 findNavController().navigate(AddCandidateFragmentDirections.actionAddCandidateFragmentToVoteFragment())
             }
@@ -117,9 +125,8 @@ class AddCandidateFragment : Fragment() {
                     Candidate(
                         name = name,
                         school = school,
-                        position = position,
                         description = description,
-                        post = position
+                        position = position
                     )
                 )
             }

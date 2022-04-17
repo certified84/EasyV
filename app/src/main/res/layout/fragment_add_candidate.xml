@@ -12,6 +12,10 @@
         <variable
             name="uiState"
             type="ObservableField&lt;UIState>" />
+
+        <variable
+            name="candidate"
+            type="com.certified.easyv.data.model.Candidate" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,6 +71,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_profile_image"
                     android:layout_width="@dimen/_100sdp"
+                    app:loadCircleImage="@{candidate.profile_image}"
                     android:layout_height="@dimen/_100sdp"
                     android:src="@drawable/no_profile_image"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -121,6 +126,7 @@
                         android:id="@+id/et_display_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@{candidate.name}"
                         android:fontFamily="@font/space_grotesk_regular"
                         android:hint="@string/name_hint"
                         android:inputType="textPersonName"
@@ -166,6 +172,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/space_grotesk_regular"
                         android:hint="@string/select"
+                        android:text="@{candidate.school}"
                         android:inputType="none"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
@@ -209,6 +216,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/space_grotesk_regular"
                         android:hint="@string/select"
+                        android:text="@{candidate.position}"
                         android:inputType="none"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
@@ -253,6 +261,7 @@
                         android:fontFamily="@font/space_grotesk_regular"
                         android:gravity="top|start"
                         android:hint="@string/type_here"
+                        android:text="@{candidate.description}"
                         android:inputType="textMultiLine"
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"

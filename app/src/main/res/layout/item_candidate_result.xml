@@ -56,7 +56,7 @@
                 android:fontFamily="@font/space_grotesk_regular"
                 android:textColor="@color/white_night_black_day"
                 android:textSize="@dimen/_12ssp"
-                android:text="@{candidate.post}"
+                android:text="@{candidate.position}"
                 app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
                 app:layout_constraintStart_toStartOf="@+id/tv_candidate_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_candidate_name"

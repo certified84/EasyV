@@ -83,24 +83,24 @@ class SignupFragment : Fragment() {
 
         binding.apply {
 
-            etMatriculationNumber.doOnTextChanged { text, _, _, _ ->
-                if (text != null) {
-                    when (text.length) {
-                        3 -> {
-                            etMatriculationNumber.apply {
-                                setText(text.toString() + "/")
-                                setSelection(etMatriculationNumber.text!!.length)
-                            }
-                        }
-                        6 -> {
-                            etMatriculationNumber.apply {
-                                setText(text.toString() + "/")
-                                setSelection(etMatriculationNumber.text!!.length)
-                            }
-                        }
-                    }
-                }
-            }
+//            etMatriculationNumber.doOnTextChanged { text, _, _, _ ->
+//                if (text != null) {
+//                    when (text.length) {
+//                        3 -> {
+//                            etMatriculationNumber.apply {
+//                                setText(text.toString() + "/")
+//                                setSelection(etMatriculationNumber.text!!.length)
+//                            }
+//                        }
+//                        6 -> {
+//                            etMatriculationNumber.apply {
+//                                setText(text.toString() + "/")
+//                                setSelection(etMatriculationNumber.text!!.length)
+//                            }
+//                        }
+//                    }
+//                }
+//            }
 
             val mKeyListener = etMatriculationNumber.keyListener
             etDisplayName.doOnTextChanged { text, _, _, _ ->
@@ -135,7 +135,7 @@ class SignupFragment : Fragment() {
                 if (!isValidEmail(email, etEmail))
                     return@setOnClickListener
 
-                if (!name.startsWith("A_") && etMatriculationNumber.checkFieldEmpty())
+                if (etMatriculationNumber.checkFieldEmpty())
                     return@setOnClickListener
 
                 if (etPassword.checkFieldEmpty())

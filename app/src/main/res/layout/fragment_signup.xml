@@ -169,8 +169,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/space_grotesk_regular"
-                    android:hint="@string/matriculation_number_hint"
-                    android:inputType="textEmailAddress"
+                    android:hint="@string/phone_number_hint"
+                    android:inputType="phone"
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingBottom="@dimen/_8sdp"
                     android:textColor="@color/white_night_black_day" />

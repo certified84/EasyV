@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.certified.easyv.data.model.Candidate
 import com.certified.easyv.databinding.ItemCandidateHomeBinding
+import com.certified.easyv.databinding.ItemCandidateHomeOtherBinding
 import com.certified.easyv.databinding.ItemCandidateResultBinding
 import com.certified.easyv.databinding.ItemCandidateVoteBinding
 
@@ -38,7 +39,7 @@ class CandidateRecyclerAdapter(private val where: String) :
         }
     }
 
-    inner class CandidateHomeViewHolder(val binding: ItemCandidateHomeBinding) :
+    inner class CandidateHomeViewHolder(val binding: ItemCandidateHomeOtherBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(candidate: Candidate) {
             binding.candidate = candidate
@@ -99,7 +100,7 @@ class CandidateRecyclerAdapter(private val where: String) :
             }
             else -> {
                 val binding =
-                    ItemCandidateHomeBinding.inflate(
+                    ItemCandidateHomeOtherBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false

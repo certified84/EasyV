@@ -39,7 +39,7 @@ class CandidateRecyclerAdapter(private val where: String) :
         }
     }
 
-    inner class CandidateHomeViewHolder(val binding: ItemCandidateHomeOtherBinding) :
+    inner class CandidateHomeViewHolder(val binding: ItemCandidateHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(candidate: Candidate) {
             binding.candidate = candidate
@@ -100,7 +100,7 @@ class CandidateRecyclerAdapter(private val where: String) :
             }
             else -> {
                 val binding =
-                    ItemCandidateHomeOtherBinding.inflate(
+                    ItemCandidateHomeBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false

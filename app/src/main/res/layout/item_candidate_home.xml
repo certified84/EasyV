@@ -25,6 +25,9 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/shapeableImageView"
                 android:layout_width="match_parent"
+                app:layout_constraintDimensionRatio="1:1"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
                 android:layout_height="@dimen/_120sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +42,8 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_marginBottom="@dimen/_2sdp"
                 android:fontFamily="@font/space_grotesk_medium"
                 android:text="@{candidate.name}"

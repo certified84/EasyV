@@ -126,8 +126,8 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView1"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
                     app:layout_constraintStart_toStartOf="@+id/guideline5"
                     app:layout_constraintTop_toBottomOf="@+id/appCompatImageView6"
                     app:srcCompat="@drawable/ic_lock" />
@@ -148,8 +148,8 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView6"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/_40sdp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40sdp"
                     app:layout_constraintStart_toStartOf="@+id/guideline5"
                     app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
                     app:srcCompat="@drawable/ic_wb_sunny" />
@@ -232,8 +232,8 @@
                     android:id="@+id/appCompatImageView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tint="@color/black"
                     android:layout_marginTop="@dimen/_16sdp"
+                    android:tint="@color/black"
                     app:layout_constraintStart_toStartOf="@+id/guideline5"
                     app:layout_constraintTop_toBottomOf="@+id/appCompatImageView7"
                     app:srcCompat="@drawable/ic_headphone" />
@@ -310,6 +310,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:visible="@{uiState == UIState.LOADING}" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group3"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="cb_dark_theme,materialTextView25,appCompatImageView6" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
